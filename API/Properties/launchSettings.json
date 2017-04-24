@@ -1,24 +1,12 @@
-{
+﻿{
   "iisSettings": {
     "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:51285/",
-      "sslPort": 0
-    }
+    "anonymousAuthentication": true
   },
   "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "api/values",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
     "UofJson.API": {
       "commandName": "Project",
-      "launchUrl": "api/values",
+      "launchUrl": "api/student/students",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
