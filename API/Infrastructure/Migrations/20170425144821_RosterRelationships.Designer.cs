@@ -8,9 +8,10 @@ using UofJson.API.Infrastructure;
 namespace UofJson.API.Infrastructure.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20170425144821_RosterRelationships")]
+    partial class RosterRelationships
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")

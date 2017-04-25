@@ -7,6 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UofJson.Web", "Web\UofJson.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UofJson.API", "API\UofJson.API.csproj", "{519C2C85-E843-43CD-A28D-94B5DB176307}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{78EB20CF-7E58-44AC-94A6-D23D6BFD74A6}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

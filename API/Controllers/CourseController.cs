@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 namespace UofJson.API.Controllers
 {
 	[Route("api/")]
-	public class StudentController : Controller
+	public class CourseController : Controller
 	{
 		private readonly SchoolContext _schoolContext;
 
-		public StudentController(SchoolContext context)
+		public CourseController(SchoolContext context)
 		{
 			_schoolContext = context;
 
@@ -19,11 +19,11 @@ namespace UofJson.API.Controllers
 
 		[HttpGet]
 		[Route("[action]")]
-		public async Task<IActionResult> Students()
+		public async Task<IActionResult> Courses()
 		{
-			var students = await _schoolContext.Students.ToListAsync();
+			var courses = await _schoolContext.Courses.ToListAsync();
 
-			return Ok(students);
+			return Ok(courses);
 		}
 	}
 }

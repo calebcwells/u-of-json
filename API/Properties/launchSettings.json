@@ -1,12 +1,23 @@
 ﻿{
   "iisSettings": {
     "windowsAuthentication": false,
-    "anonymousAuthentication": true
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:55215/",
+      "sslPort": 0
+    }
   },
   "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
     "UofJson.API": {
       "commandName": "Project",
-      "launchUrl": "api/student/students",
+      "launchUrl": "api/students",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

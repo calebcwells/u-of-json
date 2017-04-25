@@ -10,7 +10,11 @@ namespace UofJson.API.Models
     {
 		public int Id { get; set; }
 		public int StudentId { get; set; }
-		public int CourseId { get; set; }
-		public int GradeId { get; set; }
+		public int? CourseId { get; set; }
+		public int? GradeId { get; set; }
+		public Student Student { get; set; }
+		public Course Course { get; set; }
+		public Grade Grade { get; set; }
+
 	}
 }

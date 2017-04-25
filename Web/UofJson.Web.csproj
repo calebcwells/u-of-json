@@ -3,11 +3,6 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove=".editorconfig" />
-    <None Remove=".git" />
-    <None Remove=".gitignore" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>

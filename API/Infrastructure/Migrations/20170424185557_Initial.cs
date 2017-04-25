@@ -41,9 +41,9 @@ namespace UofJson.API.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CourseId = table.Column<int>(nullable: false),
-                    GradeId = table.Column<int>(nullable: true),
-                    StudentId = table.Column<int>(nullable: true)
+					StudentId = table.Column<int>(nullable: false),
+					CourseId = table.Column<int>(nullable: true),
+                    GradeId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
