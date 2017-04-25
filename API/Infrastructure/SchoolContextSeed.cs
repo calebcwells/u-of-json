@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UofJson.API.Models;
+using UofJson.API.Entities;
 
 namespace UofJson.API.Infrastructure
 {
@@ -37,6 +37,7 @@ namespace UofJson.API.Infrastructure
 
 				foreach (var student in context.Students.ToList())
 				{
+					rosters.Add(new Roster() { StudentId = student.Id });
 					rosters.Add(new Roster() { StudentId = student.Id });
 				}
 
@@ -89,15 +90,7 @@ namespace UofJson.API.Infrastructure
 			{
 				new Grade()
 				{
-					Value = "A"
-				},
-				new Grade()
-				{
-					Value = "B"
-				},
-				new Grade()
-				{
-					Value = "C"
+					Value = "F"
 				},
 				new Grade()
 				{
@@ -105,11 +98,19 @@ namespace UofJson.API.Infrastructure
 				},
 				new Grade()
 				{
-					Value = "F"
+					Value = "I"
 				},
 				new Grade()
 				{
-					Value = "I"
+					Value = "B"
+				},
+				new Grade()
+				{
+					Value = "A"
+				},
+				new Grade()
+				{
+					Value = "C"
 				}
 			};
 		}

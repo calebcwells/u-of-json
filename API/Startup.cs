@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,7 +9,7 @@ using UofJson.API.Infrastructure;
 
 namespace UofJson.API
 {
-    public class Startup
+	public class Startup
     {
         public Startup(IHostingEnvironment env)
         {
@@ -32,6 +28,8 @@ namespace UofJson.API
             services.AddMvc();
 
 			services.AddDbContext<SchoolContext>(options => options.UseSqlServer(Configuration["ConnectionString"]));
+
+			services.AddSwaggerGen();
 		}
 
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, SchoolContext schoolContext)
@@ -42,6 +40,9 @@ namespace UofJson.API
 			schoolContext.SeedContext();
 
             app.UseMvc();
+
+			app.UseSwagger();
+			app.UseSwaggerUi();
         }
 
 		public static void Main(string[] args)
@@ -51,7 +52,6 @@ namespace UofJson.API
 				.UseContentRoot(Directory.GetCurrentDirectory())
 				.UseIISIntegration()
 				.UseStartup<Startup>()
-				.UseApplicationInsights()
 				.Build();
 
 			host.Run();

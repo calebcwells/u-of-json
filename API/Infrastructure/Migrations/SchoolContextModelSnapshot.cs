@@ -16,7 +16,7 @@ namespace UofJson.API.Infrastructure.Migrations
                 .HasAnnotation("ProductVersion", "1.1.1")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("UofJson.API.Models.Course", b =>
+            modelBuilder.Entity("UofJson.API.Entities.Course", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -28,7 +28,7 @@ namespace UofJson.API.Infrastructure.Migrations
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("UofJson.API.Models.Grade", b =>
+            modelBuilder.Entity("UofJson.API.Entities.Grade", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -40,7 +40,7 @@ namespace UofJson.API.Infrastructure.Migrations
                     b.ToTable("Grades");
                 });
 
-            modelBuilder.Entity("UofJson.API.Models.Roster", b =>
+            modelBuilder.Entity("UofJson.API.Entities.Roster", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -62,7 +62,7 @@ namespace UofJson.API.Infrastructure.Migrations
                     b.ToTable("Rosters");
                 });
 
-            modelBuilder.Entity("UofJson.API.Models.Student", b =>
+            modelBuilder.Entity("UofJson.API.Entities.Student", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -90,17 +90,17 @@ namespace UofJson.API.Infrastructure.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("UofJson.API.Models.Roster", b =>
+            modelBuilder.Entity("UofJson.API.Entities.Roster", b =>
                 {
-                    b.HasOne("UofJson.API.Models.Course", "Course")
+                    b.HasOne("UofJson.API.Entities.Course", "Course")
                         .WithMany()
                         .HasForeignKey("CourseId");
 
-                    b.HasOne("UofJson.API.Models.Grade", "Grade")
+                    b.HasOne("UofJson.API.Entities.Grade", "Grade")
                         .WithMany()
                         .HasForeignKey("GradeId");
 
-                    b.HasOne("UofJson.API.Models.Student", "Student")
+                    b.HasOne("UofJson.API.Entities.Student", "Student")
                         .WithMany()
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade);

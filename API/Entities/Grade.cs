@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UofJson.API.Models
+namespace UofJson.API.Entities
 {
-    public class Course
+    public class Grade
     {
 		public int Id { get; set; }
-		public string Name { get; set; }
+		public string Value { get; set; }
 	}
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UofJson.API.Models
+namespace UofJson.API.Entities
 {
     public class Roster
     {

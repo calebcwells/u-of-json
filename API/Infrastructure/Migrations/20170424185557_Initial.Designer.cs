@@ -17,7 +17,7 @@ namespace UofJson.API.Infrastructure.Migrations
                 .HasAnnotation("ProductVersion", "1.1.1")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("UofJson.API.Models.Course", b =>
+            modelBuilder.Entity("UofJson.API.Entities.Course", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -29,7 +29,7 @@ namespace UofJson.API.Infrastructure.Migrations
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("UofJson.API.Models.Grade", b =>
+            modelBuilder.Entity("UofJson.API.Entities.Grade", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -41,7 +41,7 @@ namespace UofJson.API.Infrastructure.Migrations
                     b.ToTable("Grades");
                 });
 
-            modelBuilder.Entity("UofJson.API.Models.Roster", b =>
+            modelBuilder.Entity("UofJson.API.Entities.Roster", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -57,7 +57,7 @@ namespace UofJson.API.Infrastructure.Migrations
                     b.ToTable("Rosters");
                 });
 
-            modelBuilder.Entity("UofJson.API.Models.Student", b =>
+            modelBuilder.Entity("UofJson.API.Entities.Student", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();

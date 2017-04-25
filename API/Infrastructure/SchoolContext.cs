@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UofJson.API.Models;
+using UofJson.API.Entities;
 
 namespace UofJson.API.Infrastructure
 {

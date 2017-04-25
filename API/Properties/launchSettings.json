@@ -17,7 +17,7 @@
     },
     "UofJson.API": {
       "commandName": "Project",
-      "launchUrl": "api/students",
+      "launchUrl": "swagger/ui",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
