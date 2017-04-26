@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+﻿@import url("//fonts.googleapis.com/css?family=Mukta+Vaani:300,400,600,700&amp;lang=en");
+
+body {
+	font-family: 'Mukta Vaani', Helvetica, Arial, sans-serif !important;
+	background-color: #EEE !important;
+}
+
+.navbar {
+	background-color: #34936B;
+}
+
+.navbar-toggler {
+	cursor: pointer;
+}
+
+.nav-logo {
+	background: url("assets/json-logo.png") no-repeat 0% 40%;
+}
