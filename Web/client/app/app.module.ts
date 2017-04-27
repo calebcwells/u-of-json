@@ -11,6 +11,7 @@ import { RosterComponent } from './roster/roster.component';
 import { CourseComponent } from './course/course.component';
 import { GradeComponent } from './grade/grade.component';
 import { StudentComponent } from './student/student.component';
+import { NotFoundComponent } from './shared/components/not-found.component';
 
 import { DataService } from './shared/services/data.service';
 import { RosterService } from './roster/roster.service';
@@ -25,7 +26,8 @@ import { StudentService } from './student/student.service';
         RosterComponent,
         CourseComponent,
         GradeComponent,
-		StudentComponent
+        StudentComponent,
+		NotFoundComponent
     ],
     imports: [
         NgbModule.forRoot(),

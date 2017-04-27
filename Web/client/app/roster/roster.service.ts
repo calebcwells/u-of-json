@@ -11,8 +11,14 @@ export class RosterService {
 
     constructor(private service: DataService) { }
 
-    getRosters(): Observable<IRoster[]> {
+    getRosters(): Observable<IRoster> {
         return this.service.get('/api/Rosters').map((response: Response) => {
+            return response.json();
+        });
+    }
+
+    getRostersByStudent(id: number): Observable<IRoster> {
+        return this.service.get(`/api/RostersByStudent/${id}`).map((response: Response) => {
             return response.json();
         });
     }
