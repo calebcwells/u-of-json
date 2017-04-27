@@ -11,35 +11,35 @@ using System.IO;
 
 namespace UofJson
 {
-  public class Startup
-  {
-    public void ConfigureServices(IServiceCollection services)
-    {
-    }
+	public class Startup
+	{
+		public void ConfigureServices(IServiceCollection services)
+		{
+		}
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-    {
-      loggerFactory.AddConsole();
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+		{
+			loggerFactory.AddConsole();
 
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-      }
+			if (env.IsDevelopment())
+			{
+				app.UseDeveloperExceptionPage();
+			}
 
-      app.UseDefaultFiles();
-      app.UseStaticFiles();
-    }
+			app.UseDefaultFiles();
+			app.UseStaticFiles();
+		}
 
-    public static void Main(string[] args)
-    {
-      var host = new WebHostBuilder()
-          .UseKestrel()
-          .UseContentRoot(Directory.GetCurrentDirectory())
-          .UseIISIntegration()
-          .UseStartup<Startup>()
-          .Build();
+		public static void Main(string[] args)
+		{
+			var host = new WebHostBuilder()
+				.UseKestrel()
+				.UseContentRoot(Directory.GetCurrentDirectory())
+				.UseIISIntegration()
+				.UseStartup<Startup>()
+				.Build();
 
-      host.Run();
-    }
-  }
+			host.Run();
+		}
+	}
 }

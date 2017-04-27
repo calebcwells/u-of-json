@@ -55,7 +55,7 @@
 		"styleExt": "css",
 		"component": {
 		},
-		"prefixInterfaces": true,
+		"prefixInterfaces": false,
 		"inline": {
 			"style": true,
 			"template": false
