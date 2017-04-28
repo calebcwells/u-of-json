@@ -23,31 +23,13 @@ export class RosterComponent implements OnInit {
     }
 
     getRosterData() {
-        let rosterPath = '';
-
-        if (this.route.snapshot.url[1] !== undefined) {
-            rosterPath = this.route.snapshot.url[1].path;
-        }
-
-        switch (rosterPath) {
-            case 'student': {
-                let id = this.getRostersParams();
-                this.getRostersByStudent(id);
-                break;
-            }
-            case 'grade': {
-                let id = this.getRostersParams();
-                this.getRostersByGrade(id);
-                break;
-            }
-            case 'course': {
-                let id = this.getRostersParams();
-                this.getRostersByCourse(id);
-                break;
-            }
-            default: {
-                this.getRosters();
-            }
+        if (this.route.snapshot.params['type'] !== undefined) {
+            this.getRostersById(
+                this.route.snapshot.params['type'],
+                +this.route.snapshot.params['id']
+            );
+        } else {
+            this.getRosters();
         }
     }
 
@@ -57,29 +39,11 @@ export class RosterComponent implements OnInit {
         })
     }
 
-    getRostersByStudent(id: number) {
-        this.service.getRostersByStudent(id).subscribe(rosters => {
+    getRostersById(path: string, id: number) {
+        this.service.getRostersById(path, id).subscribe(rosters => {
             this.verifyRosterExists(rosters);
             this.rosters = rosters;
         })
-    }
-
-    getRostersByGrade(id: number) {
-        this.service.getRostersByGrade(id).subscribe(rosters => {
-            this.verifyRosterExists(rosters);
-            this.rosters = rosters;
-        })
-    }
-
-    getRostersByCourse(id: number) {
-        this.service.getRostersByCourse(id).subscribe(rosters => {
-            this.verifyRosterExists(rosters);
-            this.rosters = rosters;
-        })
-    }
-
-    getRostersParams() {
-        return +this.route.snapshot.params['id'];
     }
 
     verifyRosterExists(rosters: IRoster) {
