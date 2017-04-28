@@ -10,6 +10,8 @@ import { NotFoundComponent } from './shared/components/not-found.component';
 const routes: Routes = [
     { path: 'rosters', component: RosterComponent },
     { path: 'rosters/student/:id', component: RosterComponent },
+    { path: 'rosters/grade/:id', component: RosterComponent },
+    { path: 'rosters/course/:id', component: RosterComponent },
     { path: 'courses', component: CourseComponent },
     { path: 'grades', component: GradeComponent },
     { path: 'students', component: StudentComponent },

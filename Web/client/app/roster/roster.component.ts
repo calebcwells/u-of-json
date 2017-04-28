@@ -30,9 +30,19 @@ export class RosterComponent implements OnInit {
         }
 
         switch (rosterPath) {
-            case "student": {
-                let id = +this.route.snapshot.params['id'];
+            case 'student': {
+                let id = this.getRostersParams();
                 this.getRostersByStudent(id);
+                break;
+            }
+            case 'grade': {
+                let id = this.getRostersParams();
+                this.getRostersByGrade(id);
+                break;
+            }
+            case 'course': {
+                let id = this.getRostersParams();
+                this.getRostersByCourse(id);
                 break;
             }
             default: {
@@ -49,10 +59,33 @@ export class RosterComponent implements OnInit {
 
     getRostersByStudent(id: number) {
         this.service.getRostersByStudent(id).subscribe(rosters => {
-            if (rosters[0] === undefined) {
-				this.router.navigate(['/rosters'])
-            }
+            this.verifyRosterExists(rosters);
             this.rosters = rosters;
         })
     }
+
+    getRostersByGrade(id: number) {
+        this.service.getRostersByGrade(id).subscribe(rosters => {
+            this.verifyRosterExists(rosters);
+            this.rosters = rosters;
+        })
+    }
+
+    getRostersByCourse(id: number) {
+        this.service.getRostersByCourse(id).subscribe(rosters => {
+            this.verifyRosterExists(rosters);
+            this.rosters = rosters;
+        })
+    }
+
+    getRostersParams() {
+        return +this.route.snapshot.params['id'];
+    }
+
+    verifyRosterExists(rosters: IRoster) {
+        if (rosters[0] === undefined) {
+            this.router.navigate(['/rosters'])
+        }
+    }
+
 }

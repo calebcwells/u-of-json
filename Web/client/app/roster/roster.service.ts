@@ -22,4 +22,17 @@ export class RosterService {
             return response.json();
         });
     }
+
+    getRostersByGrade(id: number): Observable<IRoster> {
+        return this.service.get(`/api/RostersByGrade/${id}`).map((response: Response) => {
+            return response.json();
+        });
+    }
+
+    getRostersByCourse(id: number): Observable<IRoster> {
+        return this.service.get(`/api/RostersByCourse/${id}`).map((response: Response) => {
+            return response.json();
+        });
+    }
+
 }
