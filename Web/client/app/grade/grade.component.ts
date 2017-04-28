@@ -6,24 +6,24 @@ import { GradeService } from './grade.service';
 import { IGrade } from '../shared/models/grade.model';
 
 @Component({
-    selector: 'uoj-grade',
-    templateUrl: './grade.component.html',
-    styles: []
+	selector: 'uoj-grade',
+	templateUrl: './grade.component.html',
+	styles: []
 })
 export class GradeComponent implements OnInit {
 
-    public grades: IGrade[];
-    public subscription: Subscription;
+	public grades: IGrade[];
+	public subscription: Subscription;
 
-    constructor(private service: GradeService) { }
+	constructor(private service: GradeService) { }
 
-    ngOnInit() {
-        this.getGrades();
-    }
+	ngOnInit() {
+		this.getGrades();
+	}
 
-    getGrades() {
-        this.service.getGrades().subscribe(grades => {
-            this.grades = grades;
-        })
-    }
+	getGrades() {
+		this.service.getGrades().subscribe(grades => {
+			this.grades = grades;
+		}; )
+	}
 }

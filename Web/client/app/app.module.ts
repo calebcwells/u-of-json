@@ -14,35 +14,37 @@ import { StudentComponent } from './student/student.component';
 import { NotFoundComponent } from './shared/components/not-found.component';
 
 import { DataService } from './shared/services/data.service';
+import { RedirectService } from './shared/services/redirect.service';
 import { RosterService } from './roster/roster.service';
 import { CourseService } from './course/course.service';
 import { GradeService } from './grade/grade.service';
 import { StudentService } from './student/student.service';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        NavigationComponent,
-        RosterComponent,
-        CourseComponent,
-        GradeComponent,
-        StudentComponent,
+	declarations: [
+		AppComponent,
+		NavigationComponent,
+		RosterComponent,
+		CourseComponent,
+		GradeComponent,
+		StudentComponent,
 		NotFoundComponent
-    ],
-    imports: [
-        NgbModule.forRoot(),
-        BrowserModule,
-        FormsModule,
-        HttpModule,
-        AppRoutingModule
-    ],
-    providers: [
+	],
+	imports: [
+		NgbModule.forRoot(),
+		BrowserModule,
+		FormsModule,
+		HttpModule,
+		AppRoutingModule
+	],
+	providers: [
 		DataService,
-        RosterService,
-        CourseService,
-        GradeService,
+		RedirectService,
+		RosterService,
+		CourseService,
+		GradeService,
 		StudentService
-    ],
-    bootstrap: [AppComponent]
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

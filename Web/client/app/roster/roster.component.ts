@@ -1,55 +1,48 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Subscription } from 'rxjs/Subscription';
-
 import { RosterService } from './roster.service';
+import { RedirectService } from '../shared/services/redirect.service';
 import { IRoster } from '../shared/models/roster.model';
 
 @Component({
-    selector: 'uoj-roster',
-    templateUrl: './roster.component.html',
-    styles: []
+	selector: 'uoj-roster',
+	templateUrl: './roster.component.html',
+	styles: []
 })
 export class RosterComponent implements OnInit {
 
-    public rosters: IRoster;
-    public subscription: Subscription;
+	public rosters: IRoster;
 
-    constructor(private service: RosterService, private route: ActivatedRoute, private router: Router) { }
+	constructor(private service: RosterService, private route: ActivatedRoute, private redirect: RedirectService) { }
 
-    ngOnInit() {
-        this.getRosterData();
-    }
+	ngOnInit() {
+		this.getRosterData();
+	}
 
-    getRosterData() {
-        if (this.route.snapshot.params['type'] !== undefined) {
-            this.getRostersById(
-                this.route.snapshot.params['type'],
-                +this.route.snapshot.params['id']
-            );
-        } else {
-            this.getRosters();
-        }
-    }
+	getRosterData() {
+		const params = this.route.snapshot.params;
 
-    getRosters() {
-        this.service.getRosters().subscribe(rosters => {
-            this.rosters = rosters;
-        })
-    }
+		if (params['type'] !== undefined) {
+			this.getRostersById(params['type'], +params['id']);
+		} else {
+			this.getRosters();
+		}
+	}
 
-    getRostersById(path: string, id: number) {
-        this.service.getRostersById(path, id).subscribe(rosters => {
-            this.verifyRosterExists(rosters);
-            this.rosters = rosters;
-        })
-    }
+	getRosters() {
+		this.service.getRosters().subscribe(rosters => {
+			this.rosters = rosters;
+		});
+	}
 
-    verifyRosterExists(rosters: IRoster) {
-        if (rosters[0] === undefined) {
-            this.router.navigate(['/rosters'])
-        }
-    }
+	getRostersById(type: string, id: number) {
+		this.service.getRostersById(type, id).subscribe(rosters => {
+			if (rosters[0] === undefined) {
+				this.redirect.navigateTo(['/rosters']);
+			}
+			this.rosters = rosters;
+		});
+	}
 
 }

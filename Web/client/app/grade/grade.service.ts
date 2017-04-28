@@ -9,11 +9,11 @@ import { IGrade } from '../shared/models/grade.model';
 @Injectable()
 export class GradeService {
 
-    constructor(private service: DataService) { }
+	constructor(private service: DataService) { }
 
-    getGrades(): Observable<IGrade[]> {
-        return this.service.get('/api/Grades').map((response: Response) => {
-            return response.json();
-        });
-    }
+	getGrades(): Observable<IGrade[]> {
+		return this.service.get('/api/Grades').map((response: Response) => {
+			return response.json();
+		});
+	}
 }

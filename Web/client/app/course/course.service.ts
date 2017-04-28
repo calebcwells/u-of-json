@@ -9,11 +9,11 @@ import { ICourse } from '../shared/models/course.model';
 @Injectable()
 export class CourseService {
 
-    constructor(private service: DataService) { }
+	constructor(private service: DataService) { }
 
-    getCourses(): Observable<ICourse[]> {
-        return this.service.get('/api/Courses').map((response: Response) => {
-            return response.json();
-        });
-    }
+	getCourses(): Observable<ICourse[]> {
+		return this.service.get('/api/Courses').map((response: Response) => {
+			return response.json();
+		});
+	}
 }

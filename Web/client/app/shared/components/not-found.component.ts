@@ -1,15 +1,15 @@
-﻿import { Component } from '@angular/core'
+﻿import { Component } from '@angular/core';
 
 @Component({
-    template: `
+	template: `
 		<h1 class="errorMessage">Magic 8 Ball Says<br>'404 Not Found' </h1>
 	`,
-    styles: [
+	styles: [
 		`.errorMessage { 
 		  margin-top:150px; 
 		  font-size: 100px;
 		  text-align: center; 
 		}`
-    ]
+	]
 })
 export class NotFoundComponent { }

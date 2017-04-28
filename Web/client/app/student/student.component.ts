@@ -6,24 +6,24 @@ import { StudentService } from './student.service';
 import { IStudent } from '../shared/models/student.model';
 
 @Component({
-    selector: 'uoj-student',
-    templateUrl: './student.component.html',
-    styles: []
+	selector: 'uoj-student',
+	templateUrl: './student.component.html',
+	styles: []
 })
 export class StudentComponent implements OnInit {
 
-    public students: IStudent[];
-    public subscription: Subscription;
+	public students: IStudent[];
+	public subscription: Subscription;
 
-    constructor(private service: StudentService) { }
+	constructor(private service: StudentService) { }
 
-    ngOnInit() {
-        this.getStudents();
-    }
+	ngOnInit() {
+		this.getStudents();
+	}
 
-    getStudents() {
-        this.service.getStudents().subscribe(students => {
-            this.students = students;
-        })
-    }
+	getStudents() {
+		this.service.getStudents().subscribe(students => {
+			this.students = students;
+		}; )
+	}
 }
