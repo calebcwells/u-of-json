@@ -9,4 +9,9 @@
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="client\app\shared\nav\side-navigation.component.ts">
+      <DependentUpon>side-navigation.component.html</DependentUpon>
+    </None>
+  </ItemGroup>
 </Project>

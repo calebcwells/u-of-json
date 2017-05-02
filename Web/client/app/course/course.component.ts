@@ -1,29 +1,31 @@
-﻿import { Component, OnInit } from '@angular/core';
-
-import { Subscription } from 'rxjs/Subscription';
+﻿import { Component, HostBinding, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { CourseService } from './course.service';
 import { ICourse } from '../shared/models/course.model';
+import { slideOutAnimation } from '../shared/animations/slide-out.animation';
 
 @Component({
 	selector: 'uoj-course',
 	templateUrl: './course.component.html',
-	styles: []
+    animations: [ slideOutAnimation ]
 })
 export class CourseComponent implements OnInit {
 
-	public courses: ICourse[];
-	public subscription: Subscription;
+    @HostBinding('@slideOutAnimation') slideOutAnimation = true;
 
-	constructor(private service: CourseService) { }
+    public course: ICourse;
 
-	ngOnInit() {
-		this.getCourses();
+    constructor(private service: CourseService, private route: ActivatedRoute) { }
+
+    ngOnInit() {
+        this.getCourseById(+this.route.snapshot.params['id']);
 	}
 
-	getCourses() {
-		this.service.getCourses().subscribe(courses => {
-			this.courses = courses;
-		}; )
+	getCourseById(id: number) {
+        this.service.getCourseById(id).subscribe(course => {
+            this.course = course;
+        })
 	}
+
 }

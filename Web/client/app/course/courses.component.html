@@ -1,0 +1,13 @@
+﻿<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Course</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let item of courses">
+			<td><a [routerLink]="['edit', item.id]">{{item.name}}</a></td>
+		</tr>
+	</tbody>
+</table>
+<router-outlet></router-outlet>

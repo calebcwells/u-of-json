@@ -1,29 +1,19 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, HostBinding, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { Subscription } from 'rxjs/Subscription';
-
-import { GradeService } from './grade.service';
-import { IGrade } from '../shared/models/grade.model';
+import { slideOutAnimation } from '../shared/animations/slide-out.animation';
 
 @Component({
 	selector: 'uoj-grade',
 	templateUrl: './grade.component.html',
-	styles: []
+    animations: [ slideOutAnimation ]
 })
 export class GradeComponent implements OnInit {
 
-	public grades: IGrade[];
-	public subscription: Subscription;
+    @HostBinding('@slideOutAnimation') slideOutAnimation = true;
 
-	constructor(private service: GradeService) { }
+    constructor() { }
 
-	ngOnInit() {
-		this.getGrades();
-	}
+    ngOnInit() { }
 
-	getGrades() {
-		this.service.getGrades().subscribe(grades => {
-			this.grades = grades;
-		}; )
-	}
 }

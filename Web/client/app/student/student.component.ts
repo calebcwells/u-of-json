@@ -24,6 +24,6 @@ export class StudentComponent implements OnInit {
 	getStudents() {
 		this.service.getStudents().subscribe(students => {
 			this.students = students;
-		}; )
+		});
 	}
 }

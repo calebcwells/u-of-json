@@ -1,12 +1,16 @@
-﻿<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>Grade</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let item of grades">
-			<td>{{ item.value }}</td>
-		</tr>
-	</tbody>
-</table>
+﻿<div class="slide-form">
+	<form>
+		<div class="form-group">
+			<label for="gradeValue" class="col-2 col-form-label">Grade Value</label>
+			<div class="col-2">
+				<input class="form-control" type="text" id="gradeValue" placeholder="Enter grade value">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-2">
+				<a class="btn btn-default" role="button" routerLink="/grades">Back</a>
+				<button class="btn btn-primary">Save</button>
+			</div>
+			</div>
+	</form>
+</div>

@@ -1,16 +1,19 @@
-﻿import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+﻿import { Component, HostBinding, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { RosterService } from './roster.service';
 import { RedirectService } from '../shared/services/redirect.service';
 import { IRoster } from '../shared/models/roster.model';
+import { routeAnimation } from '../shared/animations/routing.animation';
 
 @Component({
 	selector: 'uoj-roster',
 	templateUrl: './roster.component.html',
-	styles: []
+	animations: [ routeAnimation ]
 })
 export class RosterComponent implements OnInit {
+
+    @HostBinding('@routeAnimation') routeAnimation = true;
 
 	public rosters: IRoster;
 

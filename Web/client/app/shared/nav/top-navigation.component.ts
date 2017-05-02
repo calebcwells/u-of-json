@@ -1,11 +1,11 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'uoj-navigation',
-	templateUrl: './navigation.component.html',
+	selector: 'uoj-top-navigation',
+	templateUrl: './top-navigation.component.html',
 	styles: []
 })
-export class NavigationComponent implements OnInit {
+export class TopNavigationComponent implements OnInit {
 
 	public isCollapsed = true;
 
