@@ -1,28 +1,16 @@
-﻿<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Age</th>
-			<th>Address</th>
-			<th>City</th>
-			<th>State</th>
-			<th>Zipcode</th>
-			<th>Email</th>
-			<th>Graduation Year</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let item of students">
-			<td>{{ item.first }}</td>
-			<td>{{ item.last }}</td>
-			<td>{{ item.age }}</td>
-			<td>{{ item.address }}</td>
-			<td>{{ item.city }}</td>
-			<td>{{ item.state }}</td>
-			<td>{{ item.zip }}</td>
-			<td>{{ item.email }}</td>
-			<td>{{ item.gradYear }}</td>
-		</tr>
-	</tbody>
-</table>
+﻿<div class="slide-form">
+	<form>
+		<div class="form-group">
+			<label for="firstName" class="col-2 col-form-label">First Name</label>
+			<div class="col-2">
+				<input class="form-control" type="text" id="firstName" placeholder="Enter first name">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-2">
+				<a class="btn btn-default" role="button" routerLink="/students">Back</a>
+				<button class="btn btn-primary">Save</button>
+			</div>
+		</div>
+	</form>
+</div>

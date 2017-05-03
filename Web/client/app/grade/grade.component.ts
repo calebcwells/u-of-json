@@ -6,14 +6,14 @@ import { slideOutAnimation } from '../shared/animations/slide-out.animation';
 @Component({
 	selector: 'uoj-grade',
 	templateUrl: './grade.component.html',
-    animations: [ slideOutAnimation ]
+	animations: [slideOutAnimation]
 })
 export class GradeComponent implements OnInit {
 
-    @HostBinding('@slideOutAnimation') slideOutAnimation = true;
+	@HostBinding('@slideOutAnimation') slideOutAnimation = true;
 
-    constructor() { }
+	constructor() { }
 
-    ngOnInit() { }
+	ngOnInit() { }
 
 }

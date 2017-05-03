@@ -5,15 +5,16 @@ import { IGrade } from '../shared/models/grade.model';
 import { routeAnimation } from '../shared/animations/routing.animation';
 
 @Component({
-	selector: 'uoj-grades',
-	templateUrl: './grades.component.html',
-    animations: [routeAnimation]
+	selector: 'uoj-grade-list',
+	templateUrl: './grade-list.component.html',
+	animations: [routeAnimation]
 })
-export class GradesComponent implements OnInit {
+export class GradeListComponent implements OnInit {
 
-    @HostBinding('@routeAnimation') routeAnimation = true;
+	@HostBinding('@routeAnimation') routeAnimation = true;
 
-	public grades: IGrade[];
+	public grades: IGrade;
+	public currentItem: IGrade;
 
 	constructor(private service: GradeService) { }
 
@@ -26,4 +27,9 @@ export class GradesComponent implements OnInit {
 			this.grades = grades;
 		});
 	}
+
+	highlightRow(grade: IGrade) {
+		this.currentItem = grade;
+	}
+
 }

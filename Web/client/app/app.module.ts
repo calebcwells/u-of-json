@@ -8,14 +8,18 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RosterComponent } from './roster/roster.component';
+import { RosterListComponent } from './roster/roster-list.component';
 import { CourseComponent } from './course/course.component';
-import { CoursesComponent } from './course/courses.component';
+import { CourseListComponent } from './course/course-list.component';
 import { GradeComponent } from './grade/grade.component';
-import { GradesComponent } from './grade/grades.component';
+import { GradeListComponent } from './grade/grade-list.component';
 import { StudentComponent } from './student/student.component';
+import { StudentListComponent } from './student/student-list.component';
 import { TopNavigationComponent } from './shared/nav/top-navigation.component';
 import { SideNavigationComponent } from './shared/nav/side-navigation.component';
 import { NotFoundComponent } from './shared/components/not-found.component';
+
+import { SelectRowDirective } from './shared/directives/select-row.directive';
 
 import { DataService } from './shared/services/data.service';
 import { RedirectService } from './shared/services/redirect.service';
@@ -28,18 +32,21 @@ import { StudentService } from './student/student.service';
 	declarations: [
 		AppComponent,
 		RosterComponent,
-        CourseComponent,
-        CoursesComponent,
+		RosterListComponent,
+		CourseComponent,
+		CourseListComponent,
 		GradeComponent,
-		GradesComponent,
+		GradeListComponent,
 		StudentComponent,
-        TopNavigationComponent,
+		StudentListComponent,
+		TopNavigationComponent,
 		SideNavigationComponent,
-		NotFoundComponent
+		NotFoundComponent,
+		SelectRowDirective
 	],
 	imports: [
 		NgbModule.forRoot(),
-        BrowserModule,
+		BrowserModule,
 		BrowserAnimationsModule,
 		FormsModule,
 		HttpModule,

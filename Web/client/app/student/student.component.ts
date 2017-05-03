@@ -1,29 +1,19 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, HostBinding, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { Subscription } from 'rxjs/Subscription';
-
-import { StudentService } from './student.service';
-import { IStudent } from '../shared/models/student.model';
+import { slideOutAnimation } from '../shared/animations/slide-out.animation';
 
 @Component({
 	selector: 'uoj-student',
 	templateUrl: './student.component.html',
-	styles: []
+	animations: [slideOutAnimation]
 })
 export class StudentComponent implements OnInit {
 
-	public students: IStudent[];
-	public subscription: Subscription;
+	@HostBinding('@slideOutAnimation') slideOutAnimation = true;
 
-	constructor(private service: StudentService) { }
+	constructor() { }
 
-	ngOnInit() {
-		this.getStudents();
-	}
+	ngOnInit() { }
 
-	getStudents() {
-		this.service.getStudents().subscribe(students => {
-			this.students = students;
-		});
-	}
 }

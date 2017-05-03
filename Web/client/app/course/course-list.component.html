@@ -1,12 +1,13 @@
 ﻿<table class="table table-hover">
 	<thead>
 		<tr>
-			<th>Grade</th>
+			<th>Course</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let item of grades">
-			<td>{{ item.value }}</td>
+		<tr *ngFor="let item of courses"
+			highlightSelectedRow>
+			<td><a [routerLink]="['edit', item.id]">{{item.name}}</a></td>
 		</tr>
 	</tbody>
 </table>

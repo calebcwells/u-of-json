@@ -8,24 +8,23 @@ import { slideOutAnimation } from '../shared/animations/slide-out.animation';
 @Component({
 	selector: 'uoj-course',
 	templateUrl: './course.component.html',
-    animations: [ slideOutAnimation ]
+	animations: [slideOutAnimation]
 })
 export class CourseComponent implements OnInit {
 
-    @HostBinding('@slideOutAnimation') slideOutAnimation = true;
+	@HostBinding('@slideOutAnimation') slideOutAnimation = true;
 
-    public course: ICourse;
+	public course: ICourse;
 
-    constructor(private service: CourseService, private route: ActivatedRoute) { }
+	constructor(private service: CourseService, private route: ActivatedRoute) { }
 
-    ngOnInit() {
-        this.getCourseById(+this.route.snapshot.params['id']);
+	ngOnInit() {
+		this.getCourseById(+this.route.snapshot.params['id']);
 	}
 
 	getCourseById(id: number) {
-        this.service.getCourseById(id).subscribe(course => {
-            this.course = course;
-        })
+		this.service.getCourseById(id).subscribe(course => {
+			this.course = course;
+		});
 	}
-
 }

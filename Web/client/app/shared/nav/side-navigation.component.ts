@@ -8,15 +8,14 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class SideNavigationComponent implements OnInit {
 
-    currentPath: string = '/';
+	currentPath = '/';
 
-    constructor(private router: Router) {
-        router.events.filter(e => e instanceof NavigationEnd).subscribe(() => {
-            this.currentPath = router.url;
-            console.log(router.url);
-        });
-    }
+	constructor(private router: Router) {
+		router.events.filter(e => e instanceof NavigationEnd).subscribe(() => {
+			this.currentPath = router.url;
+		});
+	}
 
-    ngOnInit() { }
+	ngOnInit() { }
 
 }
