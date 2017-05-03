@@ -8,7 +8,7 @@
 		<tr *ngFor="let item of grades"
 			(click)="highlightRow(item)"
 			[class.table-success]="item === currentItem">
-			<td>{{ item.value }}</td>
+			<td><a [routerLink]="['edit', item.id]">{{ item.value }}</a></td>
 		</tr>
 	</tbody>
 </table>

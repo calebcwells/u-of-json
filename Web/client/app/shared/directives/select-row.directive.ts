@@ -11,17 +11,13 @@ export class SelectRowDirective {
 
 	constructor(private service: SideNavigationService, private renderer: Renderer2, private el: ElementRef) { }
 
-	@HostListener('click', ['$event']) onClick() {
-		console.log(this.highlightSelectedRow);
-		console.log(event);
-		console.log(this.el.nativeElement.parentNode);
-		this.highlightRow(this.el);
+	@HostListener('click') onClick() {
+		this.highlightRow();
 		this.service.assignItemId(this.highlightSelectedRow);
-
 	}
 
-	highlightRow(element: ElementRef) {
-		for (let element of this.el.nativeElement.parentNode.children) {
+	highlightRow() {
+		for (const element of this.el.nativeElement.parentNode.children) {
 			if (element.classList.contains('table-success')) {
 				this.renderer.removeClass(element, 'table-success');
 			}

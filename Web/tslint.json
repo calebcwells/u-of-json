@@ -98,7 +98,7 @@
       "check-type"
     ],
 
-    "directive-selector": [true, "attribute", "uoj", "camelCase"],
+    "directive-selector": [false, "attribute", "uoj", "camelCase"],
     "component-selector": [true, "element", "uoj", "kebab-case"],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

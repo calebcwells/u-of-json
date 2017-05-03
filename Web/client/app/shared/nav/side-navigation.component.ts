@@ -15,6 +15,7 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
 	currentPath = '/';
 	itemId = 0;
 	isDisabled = true;
+	addIsDisabled = false;
 	subscription: Subscription;
 
 	constructor(private service: SideNavigationService, private router: Router) {
@@ -27,9 +28,25 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
 				this.itemId = selectedItemId;
 				this.isDisabled = false;
 			});
+
+		this.subscription = service.activateNavButtons$.subscribe(() => {
+			this.isDisabled = false;
+			this.addIsDisabled = false;
+		});
+
+		this.subscription = service.resetNavButtons$.subscribe(() => {
+			this.isDisabled = true;
+			this.addIsDisabled = false;
+		});
+
 	}
 
 	ngOnInit() { }
+
+	updateButtonState() {
+		this.isDisabled = true;
+		this.addIsDisabled = true;
+	}
 
 	ngOnDestroy() {
 		this.subscription.unsubscribe();

@@ -10,6 +10,7 @@ import { GradeListComponent } from './grade/grade-list.component';
 import { StudentComponent } from './student/student.component';
 import { StudentListComponent } from './student/student-list.component';
 import { NotFoundComponent } from './shared/components/not-found.component';
+import { NavigationResolver } from './shared/services/resolver.service';
 
 const routes: Routes = [
 	{ path: 'rosters/:type/:id', component: RosterListComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
 		children: [
 			{ path: 'add', component: RosterComponent },
 			{ path: 'edit/:id', component: RosterComponent }
-		]
+		],
+		resolve: { NavigationResolver }
 	},
 	{
 		path: 'courses',
