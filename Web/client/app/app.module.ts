@@ -23,6 +23,7 @@ import { SelectRowDirective } from './shared/directives/select-row.directive';
 
 import { DataService } from './shared/services/data.service';
 import { RedirectService } from './shared/services/redirect.service';
+import { SideNavigationService } from './shared/services/side-navigation.service';
 import { RosterService } from './roster/roster.service';
 import { CourseService } from './course/course.service';
 import { GradeService } from './grade/grade.service';
@@ -55,6 +56,7 @@ import { StudentService } from './student/student.service';
 	providers: [
 		DataService,
 		RedirectService,
+		SideNavigationService,
 		RosterService,
 		CourseService,
 		GradeService,

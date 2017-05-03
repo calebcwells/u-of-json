@@ -1,5 +1,5 @@
 ﻿<div class="sidebar col-md-2">
 	<a routerLink="{{ currentPath }}/add" class="add-item"><i class="fa fa-plus-circle"></i></a>
-	<a href="#" class="edit-item disabled"><i class="fa fa-pencil-square-o"></i></a>
-	<a href="#" class="delete-item disabled"><i class="fa fa-times"></i></a>
+	<a routerLink="{{ currentPath }}/edit/{{ itemId }}" class="edit-item" [ngClass]="{ disabled : isDisabled }"><i class="fa fa-pencil-square-o"></i></a>
+	<a routerLink="{{ currentPath }}/delete/{{ itemId }}" class="delete-item" [ngClass]="{ disabled : isDisabled }"><i class="fa fa-times"></i></a>
 </div>
