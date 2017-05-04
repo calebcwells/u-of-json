@@ -1,9 +1,42 @@
 ﻿<div class="slide-form">
-	Will add dropdowns
-	<form>
+	<h2 class="col-2">{{ title }}</h2>
+	<form [formGroup]="rosterForm" novalidate>
 		<div class="form-group">
-			<a class="btn btn-default" role="button" routerLink="/rosters">Back</a>
-			<button class="btn btn-primary">Save</button>
+			<label for="studentOption" class="col-2 col-form-label">Select a student:</label>
+			<div class=" col-2">
+				<select class="form-control" id="studentOption" name="studentOption" formControlName="student">
+					<option *ngFor="let option of studentSelectList" [ngValue]="option">
+						{{ option.first }} {{ option.last }}
+					</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="courseOption" class="col-2 col-form-label">Select a course:</label>
+			<div class=" col-2">
+				<select class="form-control" id="courseOption" name="courseOption" formControlName="course">
+					<option *ngFor="let option of courseSelectList" [ngValue]="option">
+						{{ option.name | uppercase }}
+					</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="gradeOption" class="col-2 col-form-label">Select a grade:</label>
+			<div class=" col-2">
+				<select class="form-control" id="gradeOption" name="gradeOption" formControlName="grade">
+					<option *ngFor="let option of gradeSelectList" [ngValue]="option">
+						{{ option.value }}
+					</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class=" col-2">
+				<a class="btn btn-default" role="button" routerLink="/rosters" (click)="cancelForm()">Back</a>
+				<button class="btn btn-primary">Save</button>
+			</div>
 		</div>
 	</form>
+	<p class="col-6">Form values: {{ rosterForm.value | json }}</p>
 </div>

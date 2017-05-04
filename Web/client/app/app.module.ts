@@ -2,7 +2,7 @@
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -53,6 +53,7 @@ import { StudentService } from './student/student.service';
 		BrowserModule,
 		BrowserAnimationsModule,
 		FormsModule,
+		ReactiveFormsModule,
 		HttpModule,
 		AppRoutingModule
 	],

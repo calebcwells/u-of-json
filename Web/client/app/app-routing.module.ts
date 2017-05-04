@@ -13,13 +13,13 @@ import { NotFoundComponent } from './shared/components/not-found.component';
 import { NavigationResolver } from './shared/services/resolver.service';
 
 const routes: Routes = [
-	{ path: 'rosters/:type/:id', component: RosterListComponent },
+	{ path: 'roster/:type/:id', component: RosterListComponent },
 	{
 		path: 'rosters',
 		component: RosterListComponent,
 		children: [
-			{ path: 'add', component: RosterComponent },
-			{ path: 'edit/:id', component: RosterComponent }
+			{ path: 'add', component: RosterComponent, data: { title: 'Add Roster' }  },
+			{ path: 'edit/:id', component: RosterComponent, data: { title: 'Edit Not Implemented' }  }
 		],
 		resolve: { NavigationResolver }
 	},
@@ -29,7 +29,8 @@ const routes: Routes = [
 		children: [
 			{ path: 'add', component: CourseComponent, data: { title: 'Add' } },
 			{ path: 'edit/:id', component: CourseComponent, data: { title: 'Edit' } }
-		]
+		],
+		resolve: { NavigationResolver }
 	},
 	{
 		path: 'grades',

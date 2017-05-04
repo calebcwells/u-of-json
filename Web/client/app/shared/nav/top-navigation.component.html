@@ -6,7 +6,17 @@
 	<div class="navbar-collapse collapse" [ngbCollapse]="isCollapsed">
 		<ul class="navbar-nav">
 			<li class="nav-item">
-				<a class="nav-link" routerLink="/rosters" routerLinkActive="active">Roster</a>
+				<a class="nav-link" routerLink="/rosters" routerLinkActive="active">Rosters</a>
+			</li>
+			<li class="nav-item">
+				<div ngbDropdown>
+					<button id="rosterDropdown" ngbDropdownToggle></button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/roster/student/1">Fountains of Wayne</a>
+						<a class="dropdown-item" href="/roster/course/2">It is History</a>
+						<a class="dropdown-item" href="/roster/grade/5">You got an F?</a>
+					</div>
+				</div>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" routerLink="/courses" routerLinkActive="active">Courses</a>

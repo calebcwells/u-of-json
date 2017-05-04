@@ -16,7 +16,6 @@ export class RosterListComponent implements OnInit {
 	@HostBinding('@routeAnimation') routeAnimation = true;
 
 	public rosters: IRoster;
-	public currentItem: IRoster;
 
 	constructor(private service: RosterService, private route: ActivatedRoute, private redirect: RedirectService) { }
 
@@ -47,10 +46,6 @@ export class RosterListComponent implements OnInit {
 			}
 			this.rosters = rosters;
 		});
-	}
-
-	highlightRow(roster: IRoster) {
-		this.currentItem = roster;
 	}
 
 }

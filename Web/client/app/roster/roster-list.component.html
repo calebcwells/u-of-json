@@ -9,8 +9,7 @@
 	</thead>
 	<tbody>
 		<tr *ngFor="let item of rosters"
-			(click)="highlightRow(item)"
-			[class.table-success]="item === currentItem">
+			[highlightSelectedRow]="[item.id, item.student.first, 'roster']">
 			<td>{{ item.student.first }}</td>
 			<td>{{ item.student.last }}</td>
 			<td>{{ item.course.name }}</td>

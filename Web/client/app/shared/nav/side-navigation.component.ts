@@ -53,10 +53,14 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
 		this.addIsDisabled = true;
 	}
 
-	openModal() {
+	openDeleteModal() {
 		const deleteModal = this.modalService.open(DeleteModalComponent);
 		deleteModal.componentInstance.title = `Delete ${this.item.type}`;
-		deleteModal.componentInstance.content = `Are you sure you want to delete ${this.item.type} ${this.item.name}`;
+		if (this.item.type === 'roster') {
+			deleteModal.componentInstance.content = `Are you sure you want to delete the ${this.item.type} assigned to ${this.item.name}`;
+		} else {
+			deleteModal.componentInstance.content = `Are you sure you want to delete ${this.item.type} ${this.item.name}`;
+		}
 		deleteModal.componentInstance.item = this.item;
 		this.disableButtons();
 	}
