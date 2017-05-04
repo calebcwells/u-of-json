@@ -27,8 +27,8 @@ const routes: Routes = [
 		path: 'courses',
 		component: CourseListComponent,
 		children: [
-			{ path: 'add', component: CourseComponent },
-			{ path: 'edit/:id', component: CourseComponent }
+			{ path: 'add', component: CourseComponent, data: { title: 'Add' } },
+			{ path: 'edit/:id', component: CourseComponent, data: { title: 'Edit' } }
 		]
 	},
 	{

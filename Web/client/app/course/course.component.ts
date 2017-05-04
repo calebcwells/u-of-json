@@ -1,5 +1,8 @@
 ﻿import { Component, HostBinding, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+
+import 'rxjs/add/operator/mergeMap';
 
 import { SideNavigationService } from '../shared/services/side-navigation.service';
 import { CourseService } from './course.service';
@@ -15,11 +18,21 @@ export class CourseComponent implements OnInit {
 
 	@HostBinding('@slideOutAnimation') slideOutAnimation = true;
 
+	public title: string;
 	public course: ICourse;
 
-	constructor(private service: CourseService, private navService: SideNavigationService, private route: ActivatedRoute) { }
+	constructor(
+		private service: CourseService,
+		private navService: SideNavigationService,
+		private titleService: Title,
+		private route: ActivatedRoute,
+		private router: Router
+	) { }
 
 	ngOnInit() {
+		this.title = this.route.snapshot.data['title'];
+		// this.titleService.setTitle(`${this.title} Course`);
+
 		if (this.route.snapshot.params['id'] !== undefined) {
 			this.getCourseById(+this.route.snapshot.params['id']);
 		}
@@ -32,6 +45,10 @@ export class CourseComponent implements OnInit {
 	}
 
 	cancelForm() {
-		this.navService.activateSideNav();
+		if (this.title === 'Add') {
+			this.navService.resetSideNav();
+		} else {
+			this.navService.activateSideNav();
+		}
 	}
 }

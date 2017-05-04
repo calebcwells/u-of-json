@@ -1,5 +1,6 @@
 ﻿import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
+import { Reference } from '../models/reference.model';
 import { SideNavigationService } from '../services/side-navigation.service';
 
 @Directive({
@@ -7,13 +8,14 @@ import { SideNavigationService } from '../services/side-navigation.service';
 })
 export class SelectRowDirective {
 
-	@Input() highlightSelectedRow: number;
+	@Input() highlightSelectedRow;
 
 	constructor(private service: SideNavigationService, private renderer: Renderer2, private el: ElementRef) { }
 
 	@HostListener('click') onClick() {
 		this.highlightRow();
-		this.service.assignItemId(this.highlightSelectedRow);
+		const referenceItem = new Reference(this.highlightSelectedRow);
+		this.service.assignItem(referenceItem);
 	}
 
 	highlightRow() {

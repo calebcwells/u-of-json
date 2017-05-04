@@ -18,6 +18,7 @@ import { StudentListComponent } from './student/student-list.component';
 import { TopNavigationComponent } from './shared/nav/top-navigation.component';
 import { SideNavigationComponent } from './shared/nav/side-navigation.component';
 import { NotFoundComponent } from './shared/components/not-found.component';
+import { DeleteModalComponent } from './shared/components/delete-modal.component';
 
 import { SelectRowDirective } from './shared/directives/select-row.directive';
 
@@ -44,6 +45,7 @@ import { StudentService } from './student/student.service';
 		TopNavigationComponent,
 		SideNavigationComponent,
 		NotFoundComponent,
+		DeleteModalComponent,
 		SelectRowDirective
 	],
 	imports: [
@@ -64,6 +66,7 @@ import { StudentService } from './student/student.service';
 		GradeService,
 		StudentService
 	],
+	entryComponents: [DeleteModalComponent],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

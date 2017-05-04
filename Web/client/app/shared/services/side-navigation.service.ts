@@ -2,10 +2,12 @@
 
 import { Subject } from 'rxjs/Subject';
 
+import { Reference } from '../models/reference.model';
+
 @Injectable()
 export class SideNavigationService {
 
-	private rowSelectedSubject = new Subject<number>();
+	private rowSelectedSubject = new Subject<Reference>();
 	private activateNavButtonsSubject = new Subject<boolean>();
 	private resetNavButtonsSubject = new Subject<boolean>();
 
@@ -13,8 +15,8 @@ export class SideNavigationService {
 	activateNavButtons$ = this.activateNavButtonsSubject.asObservable();
 	resetNavButtons$ = this.resetNavButtonsSubject.asObservable();
 
-	assignItemId(itemId: number) {
-		this.rowSelectedSubject.next(itemId);
+	assignItem(item: Reference) {
+		this.rowSelectedSubject.next(item);
 	}
 
 	activateSideNav() {

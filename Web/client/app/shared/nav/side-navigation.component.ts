@@ -1,8 +1,11 @@
 ﻿import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Subscription } from 'rxjs/Subscription';
 
+import { Reference } from '../models/reference.model';
+import { DeleteModalComponent } from '../components/delete-modal.component';
 import { SideNavigationService } from '../services/side-navigation.service';
 
 @Component({
@@ -13,19 +16,21 @@ import { SideNavigationService } from '../services/side-navigation.service';
 export class SideNavigationComponent implements OnInit, OnDestroy {
 
 	currentPath = '/';
-	itemId = 0;
+	item: Reference;
 	isDisabled = true;
 	addIsDisabled = false;
 	subscription: Subscription;
 
-	constructor(private service: SideNavigationService, private router: Router) {
+	constructor(private service: SideNavigationService, private modalService: NgbModal, private router: Router) {
 		router.events.filter(e => e instanceof NavigationEnd).subscribe(() => {
 			this.currentPath = router.url;
 		});
 
-		this.subscription = service.rowSelected$.subscribe(
-			selectedItemId => {
-				this.itemId = selectedItemId;
+		this.subscription = service.rowSelected$
+			.map(selectedItem => {
+				this.item = selectedItem;
+			})
+			.subscribe(() => {
 				this.isDisabled = false;
 			});
 
@@ -43,9 +48,17 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
 
 	ngOnInit() { }
 
-	updateButtonState() {
+	disableButtons() {
 		this.isDisabled = true;
 		this.addIsDisabled = true;
+	}
+
+	openModal() {
+		const deleteModal = this.modalService.open(DeleteModalComponent);
+		deleteModal.componentInstance.title = `Delete ${this.item.type}`;
+		deleteModal.componentInstance.content = `Are you sure you want to delete ${this.item.type} ${this.item.name}`;
+		deleteModal.componentInstance.item = this.item;
+		this.disableButtons();
 	}
 
 	ngOnDestroy() {

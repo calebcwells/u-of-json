@@ -22,41 +22,52 @@ a.btn {
 	z-index: 99;
 }
 
-.sidebar a {
-	font-size: 20px;
-	padding: 0 70px 40px 0;
-	line-height: 2.2em;
-}
+	.sidebar a, .sidebar button {
+		font-size: 20px;
+		padding: 0 70px 40px 0;
+		line-height: 2.2em;
+		border: none;
+		cursor: pointer;
+	}
 
-.sidebar a.disabled {
-	pointer-events: none;
-	color: lightgray;
-	opacity: 0.8;
-}
+	.sidebar button {
+		background-color: Transparent;
+		padding-bottom: 5px;
+	}
 
-.sidebar .add-item {
-	color: #32CD32;
-}
+	.sidebar a.disabled, .sidebar button[disabled] {
+		pointer-events: none;
+		color: lightgray;
+		opacity: 0.8;
+	}
 
-.sidebar .add-item:hover {
-	color: #2EBE2E;
-}
+	.sidebar .add-item {
+		color: #32CD32;
+	}
 
-.sidebar .edit-item {
-	color: #FDFD96;
-}
+		.sidebar .add-item:hover {
+			color: #2EBE2E;
+		}
 
-.sidebar .edit-item:hover {
-	color: #FCFC2E;
-}
+	.sidebar .edit-item {
+		color: #FDFD96;
+	}
 
-.sidebar .delete-item {
-	color: #DC143C;
-}
+		.sidebar .edit-item:hover {
+			color: #FCFC2E;
+		}
 
-.sidebar .delete-item:hover {
-	color: #C80623;
-}
+	.sidebar .delete-item {
+		color: #DC143C;
+	}
+
+		.sidebar .delete-item:hover {
+			color: #C80623;
+		}
+
+		.sidebar .delete-item:active {
+			outline: none;
+		}
 
 .navbar-toggler {
 	cursor: pointer;
@@ -79,5 +90,5 @@ a.btn {
 }
 
 router-outlet {
-	position:relative;
+	position: relative;
 }

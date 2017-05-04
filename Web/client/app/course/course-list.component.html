@@ -6,8 +6,8 @@
 	</thead>
 	<tbody>
 		<tr *ngFor="let item of courses"
-			[highlightSelectedRow]="item.id">
-			<td>{{item.name}}</td>
+			[highlightSelectedRow]="[item.id, item.name.toUpperCase(), 'course']">
+			<td>{{ item.name | uppercase }}</td>
 		</tr>
 	</tbody>
 </table>

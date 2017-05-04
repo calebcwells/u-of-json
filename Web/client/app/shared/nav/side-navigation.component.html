@@ -1,20 +1,20 @@
 ﻿<div class="sidebar col-md-2">
 	<a routerLink="{{ currentPath }}/add"
-	   (click)="updateButtonState()"
+	   (click)="disableButtons()"
 	   class="add-item"
 	   [ngClass]="{ disabled : addIsDisabled }">
 		<i class="fa fa-plus-circle"></i>
 	</a>
 	<a routerLink="{{ currentPath }}/edit/{{ itemId }}"
-	   (click)="updateButtonState()"
+	   (click)="disableButtons()"
 	   class="edit-item" 
 	   [ngClass]="{ disabled : isDisabled }">
 		<i class="fa fa-pencil-square-o"></i>
 	</a>
-	<a routerLink="{{ currentPath }}/delete/{{ itemId }}" 
-	   (click)="updateButtonState()"
+	<button
+	   (click)="openModal()"
 	   class="delete-item" 
-	   [ngClass]="{ disabled : isDisabled }">
+	   [disabled]="isDisabled">
 		<i class="fa fa-times"></i>
-	</a>
+	</button>
 </div>
