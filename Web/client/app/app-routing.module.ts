@@ -37,7 +37,7 @@ const routes: Routes = [
 		component: GradeListComponent,
 		children: [
 			{ path: 'add', component: GradeComponent },
-			{ path: 'edit/:id', component: GradeComponent }
+			{ path: 'edit/:id', component: GradeComponent, resolve: { grades: NavigationResolver } }
 		]
 	},
 	{

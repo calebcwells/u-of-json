@@ -1,6 +1,7 @@
-﻿import { Component, HostBinding, OnInit } from '@angular/core';
+﻿import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { IGrade } from '../shared/models/grade.model';
 import { slideOutAnimation } from '../shared/animations/slide-out.animation';
 
 @Component({
@@ -10,10 +11,20 @@ import { slideOutAnimation } from '../shared/animations/slide-out.animation';
 })
 export class GradeComponent implements OnInit {
 
+	@Input() grade: IGrade;
+
 	@HostBinding('@slideOutAnimation') slideOutAnimation = true;
 
-	constructor() { }
+	constructor(private route: ActivatedRoute) { }
 
-	ngOnInit() { }
+	ngOnInit() {
+		let grades = this.route.snapshot.data['grades'];
+
+		for (let grade of grades) {
+			if (grade.id == this.route.snapshot.url[1].path) {
+				this.grade = grade;
+			};
+		}
+	}
 
 }

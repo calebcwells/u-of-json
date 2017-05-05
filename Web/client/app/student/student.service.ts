@@ -12,7 +12,7 @@ export class StudentService {
 	constructor(private service: DataService) { }
 
 	getStudents(): Observable<IStudent> {
-		return this.service.get('/api/Students').map((response: Response) => {
+		return this.service.get('./api/Students').map((response: Response) => {
 			return response.json();
 		});
 	}

@@ -12,13 +12,13 @@ export class RosterService {
 	constructor(private service: DataService) { }
 
 	getRosters(): Observable<IRoster> {
-		return this.service.get('/api/Rosters').map((response: Response) => {
+		return this.service.get('./api/Rosters').map((response: Response) => {
 			return response.json();
 		});
 	}
 
 	getRostersById(type: string, id: number): Observable<IRoster> {
-		return this.service.get(`/api/RostersBy${type}/${id}`).map((response: Response) => {
+		return this.service.get(`./api/RostersBy${type}/${id}`).map((response: Response) => {
 			return response.json();
 		});
 	}

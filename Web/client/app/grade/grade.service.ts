@@ -12,7 +12,7 @@ export class GradeService {
 	constructor(private service: DataService) { }
 
 	getGrades(): Observable<IGrade> {
-		return this.service.get('/api/Grades').map((response: Response) => {
+		return this.service.get('./api/Grades').map((response: Response) => {
 			return response.json();
 		});
 	}
