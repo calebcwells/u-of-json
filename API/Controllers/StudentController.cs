@@ -7,7 +7,6 @@ using System.Linq;
 
 namespace UofJson.API.Controllers
 {
-	[Route("api/")]
 	public class StudentController : Controller
 	{
 		private readonly SchoolContext _schoolContext;

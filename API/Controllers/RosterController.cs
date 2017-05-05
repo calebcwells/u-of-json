@@ -8,7 +8,6 @@ using UofJson.API.ViewModels;
 
 namespace UofJson.API.Controllers
 {
-	[Route("api/")]
 	public class RosterController : Controller
 	{
 		private readonly SchoolContext _schoolContext;

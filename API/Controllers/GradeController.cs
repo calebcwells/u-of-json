@@ -7,7 +7,6 @@ using UofJson.API.Entities;
 
 namespace UofJson.API.Controllers
 {
-	[Route("api/")]
 	public class GradeController : Controller
 	{
 		private readonly SchoolContext _schoolContext;

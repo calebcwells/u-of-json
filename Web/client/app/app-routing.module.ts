@@ -21,7 +21,7 @@ const routes: Routes = [
 			{ path: 'add', component: RosterComponent, data: { title: 'Add Roster' }  },
 			{ path: 'edit/:id', component: RosterComponent, data: { title: 'Edit Not Implemented' }  }
 		],
-		resolve: { NavigationResolver }
+		resolve: { nav: NavigationResolver }
 	},
 	{
 		path: 'courses',
@@ -30,7 +30,7 @@ const routes: Routes = [
 			{ path: 'add', component: CourseComponent, data: { title: 'Add' } },
 			{ path: 'edit/:id', component: CourseComponent, data: { title: 'Edit' } }
 		],
-		resolve: { NavigationResolver }
+		resolve: { nav: NavigationResolver }
 	},
 	{
 		path: 'grades',

@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.IO;
 using UofJson.API.Infrastructure;
+using UofJson.API.Helpers;
+using Microsoft.AspNetCore.Mvc;
 
 namespace UofJson.API
 {
@@ -25,7 +27,13 @@ namespace UofJson.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(options =>
+			{
+				if (Configuration["Environment"] == "Development")
+				{
+					options.UseCentralRoutePrefix(new RouteAttribute("api/"));
+				}
+			});
 
 			services.AddDbContext<SchoolContext>(options => options.UseSqlServer(Configuration["ConnectionString"]));
 
@@ -37,9 +45,12 @@ namespace UofJson.API
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-			schoolContext.SeedContext();
+			if (env.IsDevelopment())
+			{
+				schoolContext.SeedContext();
+			}
 
-            app.UseMvc();
+			app.UseMvc();
 
 			app.UseSwagger();
 			app.UseSwaggerUi();

@@ -8,7 +8,8 @@
 			"root": "client",
 			"outDir": "wwwroot",
 			"assets": [
-				"assets"
+				"assets",
+				"web.config"
 			],
 			"index": "index.html",
 			"main": "main.ts",
@@ -17,11 +18,11 @@
 			"tsconfig": "tsconfig.app.json",
 			"testTsconfig": "tsconfig.spec.json",
 			"prefix": "uoj",
-					"styles": [
-						"styles.css",
-						"../node_modules/bootstrap/dist/css/bootstrap.min.css",
-						"../node_modules/font-awesome/css/font-awesome.min.css"
-					],
+			"styles": [
+				"styles.css",
+				"../node_modules/bootstrap/dist/css/bootstrap.min.css",
+				"../node_modules/font-awesome/css/font-awesome.min.css"
+			],
 			"scripts": [],
 			"environmentSource": "environments/environment.ts",
 			"environments": {
