@@ -1,1 +1,1 @@
-﻿Prototype project created to test out features in Angular and dotnet core.
+This project has been archived.
